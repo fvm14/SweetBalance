@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f6fa;
+  color: #263238;
+}
+
+h1, h2, h3, h4 {
+  color: #1a237e;
+  font-weight: bold;
+}
+
+/* HOME */
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.home-card {
+  display: flex;
+  background-color: #e3f2fd;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.home-img img {
+  width: 240px;
+  border-radius: 10px;
+}
+
+.home-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.feature-box {
+  background-color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+
+/* RECETAS */
+.recetas-container {
+  padding: 2rem;
+  background-color: #f9fbfd;
+  min-height: 100vh;
+}
+
+.recetas-titulo {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.recetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem; /* espacio reducido entre tarjetas */
+  justify-items: center;
+}
+
+.receta-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1rem;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.receta-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.receta-btn {
+  background-color: #e3f2fd;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #01579b;
+  transition: background 0.3s ease;
+}
+
+.receta-btn:hover {
+  background-color: #bbdefb;
+}

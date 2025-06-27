@@ -1,0 +1,53 @@
+.consejos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1.5rem 2rem 2rem; /* <- aquí subimos el padding-top */
+  align-items: flex-start;
+  background-color: #f3f6fa;
+  min-height: 100vh;
+}
+
+  
+.consejos-imagen {
+  flex: 1;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 4rem; /* Aumentado para más espacio */
+}
+
+  
+  .consejos-imagen img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .consejos-lista {
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  .consejos-titulo {
+    font-size: 2rem;
+    color: #1a237e;
+    margin-bottom: 1rem;
+  }
+  
+  .consejos-lista ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .consejos-lista li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #263238;
+    background-color: #ffffff;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  
