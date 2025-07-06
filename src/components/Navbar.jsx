@@ -11,6 +11,7 @@ const Navbar = () => {
         <li><Link to="/recetas">Recetas Saludables</Link></li>
         <li><Link to="/tiendas">Tiendas Cercanas</Link></li>
         <li><Link to="/consejos">Consejos Nutricionales</Link></li>
+        <li><Link to="/producto">Producto</Link></li>
         <li><Link to="/testimonio">Testimonios</Link></li>
       </ul>
     </nav>
