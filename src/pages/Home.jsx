@@ -29,7 +29,7 @@ const Home = () => {
           <div className="features">
             <div className="feature-box">✓ Sin azúcar</div>
             <div className="feature-box">✓ Índice glucémico bajo</div>
-            <div className="feature-box">✓ Cápsulas y polvo</div>
+            <div className="feature-box">✓ Botella de 1 litro</div>
             <div className="feature-box">✓ Biodegradable</div>
           </div>
         </div>
