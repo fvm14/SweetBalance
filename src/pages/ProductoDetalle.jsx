@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, Grid, Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions, Chip
+  Box,
+  Typography,
+  Button,
+  Chip,
+  Link,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel
 } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import StoreIcon from '@mui/icons-material/Store';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const ProductoDetalle = () => {
-  const [cantidad, setCantidad] = useState(1);
-  const [open, setOpen] = useState(false);
+  const [sabor, setSabor] = useState('Camu Camu');
 
-  const handleComprar = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleSaborChange = (event) => {
+    setSabor(event.target.value);
   };
 
   return (
@@ -41,9 +44,24 @@ const ProductoDetalle = () => {
           gap: 3,
         }}
       >
-        <Box sx={{ flex: 1, backgroundColor: '#e0f7fa', borderRadius: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', p: 3 }}>
+        {/* Imagen del producto */}
+        <Box
+          sx={{
+            flex: 1,
+            backgroundColor: '#e0f7fa',
+            borderRadius: 2,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            p: 3,
+          }}
+        >
           <Box sx={{ position: 'relative' }}>
-            <img src="/img/sweetbalance.png" alt="Sweet Balance" style={{ maxWidth: '100%', borderRadius: 8 }} />
+            <img
+              src="/img/sweetbalance.png"
+              alt="Sweet Balance"
+              style={{ maxWidth: '100%', borderRadius: 8 }}
+            />
             <Chip
               label="1000 ml"
               color="error"
@@ -52,63 +70,90 @@ const ProductoDetalle = () => {
           </Box>
         </Box>
 
-        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2 }}>
+        {/* Detalles del producto */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: 2,
+          }}
+        >
           <Typography variant="h5" sx={{ color: '#1a237e', fontWeight: 600 }}>
-            Sweet Balance 50
-          </Typography>
-          <Typography variant="subtitle1" sx={{ color: '#546e7a' }}>
-            Solución Oral Sabor Fresa - Frasco 1L
-          </Typography>
-          <Typography variant="body1">
-            <b>Precio:</b> <span style={{ color: '#d32f2f', fontWeight: 'bold' }}>S/ 7.00</span>
+            Sweet Balance
           </Typography>
 
+          <FormControl fullWidth sx={{ maxWidth: 300 }}>
+            <InputLabel id="sabor-label">Sabor</InputLabel>
+            <Select
+              labelId="sabor-label"
+              id="sabor-select"
+              value={sabor}
+              label="Sabor"
+              onChange={handleSaborChange}
+            >
+              
+              <MenuItem value="Camu Camu">Solución oral sabor Camu Camu</MenuItem>
+              <MenuItem value="Yacón">Solución oral sabor Yacón</MenuItem>
+              <MenuItem value="Maca">Solución oral sabor Maca</MenuItem>
+            </Select>
+          </FormControl>
+
           <Box>
-            <Typography><b>Elige la presentación:</b></Typography>
-            <Button variant="outlined" sx={{ mt: 1, color: '#01579b', borderColor: '#90caf9' }}>FRASCO</Button>
+            <Typography>
+              <b>Elige la presentación:</b>
+            </Typography>
+            <Button
+              variant="outlined"
+              sx={{ mt: 1, color: '#01579b', borderColor: '#90caf9' }}
+            >
+              FRASCO
+            </Button>
           </Box>
 
           <Box>
-            <Typography><b>Métodos de entrega disponibles:</b></Typography>
+            <Typography>
+              <b>Métodos de entrega disponibles:</b>
+            </Typography>
             <ul style={{ paddingLeft: '1rem', marginTop: 8 }}>
-              <li><LocalShippingIcon fontSize="small" /> Despacho a domicilio <Chip label="Disponible" color="success" size="small" /></li>
-              <li><StoreIcon fontSize="small" /> Retiro en botica <Chip label="Gratis" color="primary" size="small" /></li>
+              <li>
+                <LocalShippingIcon fontSize="small" /> Despacho a domicilio{' '}
+                <Chip label="Disponible" color="success" size="small" />
+              </li>
+              <li>
+                <StoreIcon fontSize="small" /> Retiro en tiendas:
+                <ul style={{ marginTop: 4 }}>
+                  <li>
+                    <b>La Sanahoria</b> – Av. Vasco Núñez de Balboa 755, Miraflores
+                  </li>
+                  <li>
+                    <b>Madre Natura</b> – Av. Angamos Oeste 1102, Miraflores
+                  </li>
+                  <li>
+                    <b>Viva Salud</b> – Calle Alcanfores 495, Miraflores
+                  </li>
+                </ul>
+              </li>
             </ul>
+            <Typography
+              sx={{
+                mt: 2,
+                color: '#37474f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+              }}
+            >
+              <PhoneIcon fontSize="small" />
+              <b>Para más información:</b>
+              <Link href="tel:987654321" underline="hover" color="inherit">
+                987-654-321
+              </Link>
+            </Typography>
           </Box>
-
-          <TextField
-            label="Cantidad"
-            type="number"
-            size="small"
-            value={cantidad}
-            onChange={(e) => setCantidad(Math.max(1, parseInt(e.target.value) || 1))}
-            sx={{ maxWidth: 120 }}
-          />
-
-          <Button
-            variant="contained"
-            color="success"
-            size="large"
-            startIcon={<ShoppingCartIcon />}
-            onClick={handleComprar}
-            sx={{ mt: 2 }}
-          >
-            AGREGAR AL CARRITO
-          </Button>
         </Box>
       </Box>
-
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
-          🎉 Orden de Compra Realizada
-        </DialogTitle>
-        <DialogContent>
-          <Typography>Gracias por tu compra. Hemos registrado tu pedido correctamente.</Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} variant="contained">Cerrar</Button>
-        </DialogActions>
-      </Dialog>
     </Box>
   );
 };
